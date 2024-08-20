@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison ECAL</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+
+
+
+
+
+<style>
+
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles pour la section portfolio */
+.portfolio {
+    background-color: white;
+    padding: 50px;
+    max-width: 1500px;
+    margin: 0 auto;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.portfolio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-item {
+    margin-bottom: 20px;
+    flex: 1;
+    padding: 20px;
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+.portfolio-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+}
+
+.portfolio-description {
+    flex: 2;
+    padding: 20px;
+    background-color: white;
+    color: #0c0c0c;
+    border-radius: 5px;
+    animation: fadeInRight 1s ease-in-out;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.more-info-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: skyblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.more-info-link:hover {
+    background-color: #0056b3;
+}
+
+.portfolio h2 {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effets d'image */
+#enlargeImage:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Styles pour les paragraphes */
+.portfolio-paragraph {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Styles pour le sous-titre */
+.sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 70;
+    letter-spacing: 5px;
+    animation: moveInRight 4s ease-out;
+    text-shadow: 2px 2px 4px white;
+}
+
+/* Styles pour le contenu */
+.content p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+/* Styles pour la navigation */
+.navigation {
+    font-family: 'Bradley Hand ITC', 'Comic Sans MS', cursive;
+    font-size: 18px;
+}
+
+/* Styles pour le texte d'accueil */
+.welcome-text-center .heading-primary {
+    font-family: 'Bradley Hand ITC', 'Comic Sans MS', cursive;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Styles pour la section des cours */
+.courses-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.courses-section h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.course-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.course-item:hover .icon-wrapper {
+    background-color: #87CEEB;
+}
+
+.course-item span {
+    font-size: 20px;
+    color: #495057;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-course {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+}
+
+.btn-course:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Animation délais pour les éléments de cours */
+.course-item:nth-child(1) { animation-delay: 0.1s; }
+.course-item:nth-child(2) { animation-delay: 0.4s; }
+.course-item:nth-child(3) { animation-delay: 0.6s; }
+.course-item:nth-child(4) { animation-delay: 0.8s; }
+.course-item:nth-child(5) { animation-delay: 1.0s; }
+.course-item:nth-child(6) { animation-delay: 1.3s; }
+
+/* Styles pour le sélecteur de langue */
+.language-selector {
+    position: relative;
+}
+
+#language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#language-menu a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+#language-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Media queries pour la responsivité */
+@media screen and (max-width: 1024px) {
+    .portfolio {
+        padding: 30px;
+    }
+    
+    .portfolio-content {
+        flex-direction: column;
+    }
+    
+    .portfolio-item, .portfolio-description {
+        width: 100%;
+    }
+    
+    .courses-container {
+        gap: 20px;
+    }
+    
+    .course-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio {
+        padding: 20px;
+    }
+    
+    .portfolio h2 {
+        font-size: 18px;
+    }
+    
+    .course-item {
+        width: 100%;
+    }
+    
+    .sub {
+        font-size: 16px;
+    }
+    
+    .content p, .navigation {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .portfolio {
+        padding: 15px;
+    }
+    
+    .portfolio-image {
+        max-height: 200px;
+    }
+    
+    .more-info-link {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .courses-section h2 {
+        font-size: 28px;
+    }
+    
+    .btn-course {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+</style>
+<body>
+    <header>
+        
+        <a href="#" class="logo">
+           <!-- <img src="photo/logo1.jpg" alt="Ecal" class="logo-img" onclick="window.location.href='index.html';">-->
+            <span class="sub" style="margin-bottom: 30px;"> Maison</span>
+            <span class="sub" >ECAL&Divers</span>
+           
+        </a>
+
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="home.html" class="links-text" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="index.html#about" class="links-text" data-section="a-propos" data-fr="A Propos" data-en="About">A Propos</a></li>
+                <li><a href="index.html#service" class="links-text" data-section="nos-services" data-fr="Nos Services" data-en="Our Services">Nos Services</a></li>
+                <li><a href="CoursesM.html" class="links-text" data-section="nos-services" data-fr="Cours" data-en="Courses">Cours</a></li>
+                <li><a href="gallery.html" class="links-text" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+                <li><a href="ContactMe.html" class="links-text" data-section="nous-contacter" data-fr="Nous Contacter" data-en="Contact Us">Nous Contacter</a></li>
+                <li class="language-selector">
+                    <a href="#" id="language-toggle" class="links-text"><i class="fas fa-language" style="font-size: 20px;"></i></a>
+                    <div id="language-menu" style="display: none;">
+                        <a href="#" class="language-option" data-lang="fr">French</a>
+                        <a href="#" class="language-option" data-lang="en">English</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+
+            
+</ul>
+        <!-- <div class="search">
+            <span class="icon">
+                <i class="bx bx-search searchBtn" id="searchBtn"></i>
+                <i class="bx bx-x closeBtn" id="closeBtn"></i>
+            </span>
+        </div>
+        <div class="searchBox" id="searchBox">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div> -->
+    </header>
+
+    <div class="header-container">
+        
+            <!-- <img src="photo/as.jpg" alt="Background Image"> -->
+            <!-- Mettez ici le contenu spécifique à la page d'accueil -->
+            <div class="welcome-text">
+                <div class="welcome-text-center">
+                    <h1 class="heading-primary">
+                        <span class="heading-primary-main">Maison"ECAL"et Divers</span>
+                        <span class="heading-primary-sub">Etudes,Conseils et Assistance Logistique</span>
+                    </h1>
+                    <a href="about.html" class="btn btn-white btn-animated" data-en="ABOUT US" data-fr="À PROPOS DE NOUS">ABOUT US</a>
+                </div>
+            </div>
+    </div>
+    <div class="centered-text">
+        <div class="marquee-container">
+            <span class="marquee english">Welcome To Maison "ECAL" and Others</span>
+            <span class="marquee french">Bienvenue à la Maison "ECAL" et Divers</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="services wrapper"  id="about">
+        <ul class="clearfix">
+            <li class="animated wow fadeInDown">
+                <img class="icon" src="images/picture16.jpg" alt="" />
+                <span class="separator"></span>
+                <div class="content">
+                    <div id="content-fr">
+                        <h2 style="font-family: 'Gabriola', cursive; font-size: 24px; color: rgb(91, 218, 235);">Études, Conseil et Assistance Logistique & Autres</h2>
+                        <p>La Maison ECAL et Divers est spécialisée dans les différentes fonctions logistiques, elle vous appuiera en études, conseils et assistances logistiques dans ces différentes tâches et vous ne serez jamais déçus pour son travail de qualité.</p>
+                        <p>Située à Goma, avec des extensions à Bukavu et à Kalemie, Maison ECAL vise à établir des partenariats durables avec nos clients, fondés sur la confiance et la satisfaction totale, contribuant ainsi à leur réussite.</p>
+                        <p>Nous nous efforçons de collaborer étroitement avec nos clients, en leur fournissant des conseils éclairés et une expertise logistique de haut niveau pour optimiser leurs opérations.</p>
+                        <a href="index.html#service" class="more-info-link">Pour Plus D'information</a>
+                    </div>
+                    <div id="content-en" style="display: none;">
+                        <h2 style="font-family: 'Gabriola', cursive; font-size: 24px; color: rgb(91, 218, 235);">Studies, Consulting and Logistics Assistance & Others</h2>
+                        <p>Maison ECAL et Divers specializes in various logistics functions, providing support in studies, consulting, and logistics assistance for different tasks. You will never be disappointed with the quality of our work.</p>
+                        <p>Located in Goma, with extensions in Bukavu and Kalemie, Maison ECAL aims to establish lasting partnerships with our clients, based on trust and total satisfaction, contributing to their success.</p>
+                        <p>We strive to work closely with our clients, providing informed advice and high-level logistics expertise to optimize their operations.</p>
+                        <a href="index.html#service" class="more-info-link">For More Information</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+
+
+
+<h7>
+</h7>
+<!--
+<div class="mtn" style="color: rgb(240, 240, 240);">
+      
+    <a href="courses.html" class="more-info-link">For more information</a>
+   
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="section portfolio" id="portfolio">
+    <h2 data-fr="A propos de l'instructeur :" data-en="About the instructor:">A propos de l'instructeur :</h2>
+    <div class="portfolio-content">
+        <div class="portfolio-item">
+            <img src="photo/G26.jpg" alt="Portfolio Item 1" class="portfolio-image" id="enlargeImage">
+        </div>
+        <div class="portfolio-description">
+            <p data-fr="Ghislain est un logisticien diplômé en Logistique internationale solidaire de l'Institut Bioforce en France. De plus, il est certifié en Management and Leadership, ainsi qu'en Humanitarian Project Design and Management, toujours en France. Sa carrière professionnelle impressionnante s'étend sur plus de 8 ans en tant que Manager Logistique, offrant son expertise à la Mission du Conseil Norvégien pour les Réfugiés au Niger, au Cameroun, en RDC, et dans d'autres pays." 
+               data-en="Ghislain is a logistician with a degree in International Solidarity Logistics from the Bioforce Institute in France. Additionally, he is certified in Management and Leadership, as well as Humanitarian Project Design and Management, also in France. His impressive professional career spans over 8 years as a Logistics Manager, offering his expertise to the Norwegian Refugee Council Mission in Niger, Cameroon, DRC, and other countries.">
+                Ghislain est un logisticien diplômé en Logistique internationale solidaire de l'Institut Bioforce en France. 
+                De plus, il est certifié en Management and Leadership, ainsi qu'en Humanitarian Project Design
+                and Management, toujours en France. Sa carrière professionnelle impressionnante s'étend sur plus de 8 ans en tant que Manager Logistique, offrant son expertise à la Mission du Conseil Norvégien
+                pour les Réfugiés au Niger, au Cameroun, en RDC, et dans d'autres pays.
+            </p>
+            <p data-fr="Pendant 7 ans, 1 mois et 13 jours, Ghislain a excellé en tant que Coordinateur Logistique au sein de l'organisation non gouvernementale le Conseil Norvégien pour les Réfugiés (NRC), notamment pour la Mission NRC dans plusieurs pays d'Afrique, dont la RDC, le Mali, la Tanzanie, etc. Sa contribution exceptionnelle dans le domaine de la logistique a grandement contribué aux opérations humanitaires de l'organisation." 
+               data-en="For 7 years, 1 month, and 13 days, Ghislain excelled as a Logistics Coordinator within the non-governmental organization Norwegian Refugee Council (NRC), particularly for the NRC Mission in several African countries, including DRC, Mali, Tanzania, etc. His exceptional contribution in the field of logistics greatly contributed to the organization's humanitarian operations.">
+                Pendant 7 ans, 1 mois et 13 jours, Ghislain a excellé en tant que Coordinateur Logistique au sein de
+                l'organisation non gouvernementale le Conseil Norvégien pour les Réfugiés (NRC), notamment pour la
+                Mission NRC dans plusieurs pays d'Afrique, dont la RDC, le Mali, la Tanzanie, etc. Sa contribution
+                exceptionnelle dans le domaine de la logistique a grandement contribué aux opérations humanitaires de
+                l'organisation.
+            </p>
+            <p data-fr="De plus, il gère le stress lié aux situations d'urgence avec efficacité, ce qui est essentiel pour maintenir la stabilité opérationnelle. Doté d'une solide connaissance technique des outils logistiques, des systèmes de gestion de la chaîne d'approvisionnement, et des réglementations, Ghislain veille à ce que les opérations se déroulent sans accroc. Il porte une attention minutieuse aux détails pour éviter des erreurs coûteuses, démontrant ainsi son engagement envers l'excellence dans son domaine. Enfin, Ghislain maintient une adhésion stricte à l'éthique, essentielle pour la gestion des ressources précieuses dédiées aux missions humanitaires. Son éducation solide et sa carrière impressionnante en tant que Coordinateur Logistique témoignent de sa contribution exceptionnelle au succès des opérations humanitaires à travers divers pays d'Afrique." 
+               data-en="Moreover, he effectively manages stress related to emergency situations, which is essential for maintaining operational stability. Equipped with a solid technical knowledge of logistics tools, supply chain management systems, and regulations, Ghislain ensures that operations run smoothly. He pays meticulous attention to details to avoid costly errors, thus demonstrating his commitment to excellence in his field. Finally, Ghislain maintains strict adherence to ethics, essential for managing precious resources dedicated to humanitarian missions. His solid education and impressive career as a Logistics Coordinator attest to his exceptional contribution to the success of humanitarian operations across various African countries.">
+                De plus, il gère le stress lié aux situations d'urgence avec efficacité, ce qui est essentiel pour maintenir la
+                stabilité opérationnelle. Doté d'une solide connaissance technique des outils logistiques, des systèmes de gestion de la chaîne
+                d'approvisionnement, et des réglementations, Ghislain veille à ce que les opérations se déroulent sans accroc. Il porte
+                une attention minutieuse aux détails pour éviter des erreurs coûteuses, démontrant ainsi son engagement envers
+                l'excellence dans son domaine. Enfin, Ghislain maintient une adhésion stricte à l'éthique, essentielle pour la gestion des ressources précieuses
+                dédiées aux missions humanitaires. Son éducation solide et sa carrière impressionnante en tant que Coordinateur
+                Logistique témoignent de sa contribution exceptionnelle au succès des opérations humanitaires à travers divers pays
+                d'Afrique.
+            </p>
+            <a href="portfolio.html" class="more-info-link" data-fr="Pour plus d'information" data-en="For more information">Pour plus d'information</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="courses-section"  id="cours">
+    <h2 data-fr="Nos Cours" data-en="Our Courses">Nos Cours</h2>
+    <div class="courses-container">
+        <div class="course-item">
+            <div class="icon-wrapper">
+                📦
+            </div>
+            <span data-fr="Approvisionnement" data-en="Supply">Approvisionnement</span>
+            <a href="operation.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+        <div class="course-item">
+            <div class="icon-wrapper">
+                🛒
+            </div>
+            <span data-fr="Achat" data-en="Procurement">Achat</span>
+            <a href="playlist.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+        <div class="course-item">
+            <div class="icon-wrapper">
+                🚚
+            </div>
+            <span data-fr="Gestion du parc équipement" data-en="Equipment Fleet Management">Gestion du parc équipement</span>
+            <a href="Supply.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+        <div class="course-item">
+            <div class="icon-wrapper">
+                📡
+            </div>
+            <span data-fr="Communication" data-en="Communication">Communication</span>
+            <a href="CoursesM.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+        <div class="course-item">
+            <div class="icon-wrapper">
+                🏗️
+            </div>
+            <span data-fr="Réhabilitation" data-en="Rehabilitation">Réhabilitation</span>
+            <a href="procurement.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+        <div class="course-item">
+            <div class="icon-wrapper">
+                📊
+            </div>
+            <span data-fr="Etude de marché" data-en="Market Research">Etude de marché</span>
+            <a href="watch-video.html" class="btn-course" data-fr="Plus de détails" data-en="More details">Plus de détails</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="first-footer">
+        <div class="footer-images">
+            <img src="photo/logo1.jpg" class="images-footer" alt="Footer Image">
+        </div>
+        
+    <div class="footer-container">
+        <div class="link-partner">
+            <h3 class="title2" style="font-family: 'Gabriola', cursive; font-size: 18px; color: white;">Contact Info</h3>
+            
+            <li class="list-links">
+                <a href="whatsapp://send?phone=243814626370" class="whatsapp-link">(+243)814626370</a>
+            </li>
+            <li class="list-links">
+                <a href="whatsapp://send?phone=243997568776" class="whatsapp-link">(+243)997568776</a>
+            </li>
+        </div>
+            <div class="link-partner">
+                <h3 class="title3">
+                    <img src="photo/location.png" class="location-logo">
+                    <span class="location" style="font-family: 'Gabriola', cursive; font-size: 18px; color: white;">Location</span>
+                </h3>
+                <li class="list-links">Bukavu</li>
+                <li class="list-links">Goma</li>
+                <li class="list-links">Kalemie</li>
+            </div>
+            <div class="link-partner">
+                <h3 class="title4" style="font-family: 'Gabriola', cursive; font-size: 18px; color: #ffffff;">Social Media</h3>
+                <div class="logos">
+                    <li class="list-links">
+                        <img src="photo/instagram.png" class="instagram" />
+                        <a href="https://instagram.com/maison.ecal12?igshid=MzMyNGUyNmU2YQ==" target="_blank">
+                            <span class="instagram-text" >Instagram</span>
+                        </a>
+                    </li>
+                    <li class="list-links">
+                        <img src="photo/twitter-remover.png" class="twitter" />
+                        <a href="https://twitter.com/MaisonEcal?t=djST5JaWdC1vj1T97qX2gg&s=09" target="_blank">
+                            <span class="instagram-text">Twitter</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Pied de Page -->
+        <footer>
+            <p>&copy;Designed by Jocos,Sharo&Tcha-Vei</p>
+            <!-- Ajoutez ici des liens vers des profils de médias sociaux, etc. -->
+        </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.15.0/ionicons.js"></script>
+    <script src="scripts.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageToggle = document.getElementById('language-toggle');
+    const languageMenu = document.getElementById('language-menu');
+    const contentFr = document.getElementById('content-fr');
+    const contentEn = document.getElementById('content-en');
+
+    // Fonction pour traduire la page
+    function translatePage(lang) {
+        document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+            element.textContent = element.getAttribute('data-' + lang);
+        });
+    }
+
+    languageToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        languageMenu.style.display = languageMenu.style.display === 'none' ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (lang === 'fr') {
+                contentFr.style.display = 'block';
+                contentEn.style.display = 'none';
+            } else {
+                contentFr.style.display = 'none';
+                contentEn.style.display = 'block';
+            }
+            translatePage(lang);
+            languageMenu.style.display = 'none';
+        });
+    });
+
+    // Fermer le menu si on clique ailleurs sur la page
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.language-selector')) {
+            languageMenu.style.display = 'none';
+        }
+    });
+
+    // Initialiser la page en français
+    translatePage('fr');
+});
+
+
+
+
+
+        
+ </script>
+
+
+
+
+
+</body>
+
+</html>
